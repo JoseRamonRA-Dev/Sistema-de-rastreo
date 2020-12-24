@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { MensajesService } from '../WebServices/mensajes.service';
 import { Router } from '@angular/router';
 import { RegistroCoordService } from '../WebServices/localizacion/registro-coord.service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-log-coordenada',
@@ -11,21 +12,18 @@ import { RegistroCoordService } from '../WebServices/localizacion/registro-coord
 })
 export class LogCoordenadaComponent implements OnInit {
 
-  latitud2: any;
-  longitud2: any;
-  lati_longi: FormGroup;
-  data: FormGroup;
-  lati_longi_local: any;
-  data_local: any;
+  latitud2: any = '';
+  longitud2: any = '';
+  data: FormGroup ;
+  data_local: any = '';
+  fecha2: any = '';
+  correo2: any = '';
+
 
   constructor(private formBuilder: FormBuilder, private servicio: RegistroCoordService,
     private mensaje: MensajesService, private router: Router) {
-    this.lati_longi = new FormGroup({
-      'longitud': new FormControl('', Validators.required),
-      'latitud': new FormControl('', Validators.required)
-    });
     this.data = new FormGroup({
-      'numerocel': new FormControl('', Validators.required),
+      'correo': new FormControl('', Validators.required),
       'latitud': new FormControl('', Validators.required),
       'longitud': new FormControl('', Validators.required),
       'tiempo': new FormControl('', Validators.required)
@@ -40,9 +38,25 @@ export class LogCoordenadaComponent implements OnInit {
     });
   }
 
+  mostrarValores(){
+    //To get the current user
+    this.correo2 = localStorage.getItem("correo");
+
+    //Current Date
+    var now = new Date();
+    this.fecha2 = now.toUTCString(); // convert date to a string in UTC timezone format
+    
+    return;
+  }
+
   agreagrLocalizacion(): void {
     this.data_local = this.data.value;
-    if ((this.data_local.longitud != "") && (this.data_local.latitud != "")) {
+    this.data_local.correo = this.correo2;
+    this.data_local.latitud = this.latitud2;
+    this.data_local.longitud = this.longitud2;
+    this.data_local.tiempo = this.fecha2;
+    console.log(this.data_local);
+    if ((this.data_local.longitud != "") && (this.data_local.latitud != "") && (this.data_local.correo != "") && (this.data_local.tiempo != "")) {
       this.servicio.registrarLocalizacion(this.data_local).then((res) => {
         this.mensaje.mensaje('success', 'Localizacion agregada', 'Tu nueva ubicacion a sido agregada a tu rastreo personal.');
         this.router.navigate(['/inicio']);
@@ -53,7 +67,8 @@ export class LogCoordenadaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getLocation()
+    this.mostrarValores();
+    this.getLocation();
   }
 
 }
