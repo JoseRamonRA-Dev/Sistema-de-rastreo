@@ -11,35 +11,6 @@
   -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <script src="https://use.fontawesome.com/478910eb2a.js"></script>
- <script>
-   function coordenadas(){
-    if (navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(muestracoordenadas,manejoerrores);
-    }else{
-      document.getElementById("salida").innerHTML("Tu navegador es chafa");
-    }
-  }
-  function muestracoordenadas(posicion){
-    var lt = posicion.coords.latitude;
-    var ln = posicion.coords.longitude;
-    
-    document.getElementById("salida").innerHTML = "LATITUD: " + lt + "<br> LONGITUD: " + ln + "<br>";
-  }
-  function manejoerrores(error){
-    var salida = document.getElementById("salida");
-    switch(error.code){
-      case error.PERMISSION_DENIED:
-        salida.innerHTML = "EL USUARIO FUE GACHO"; 
-        break;
-      case error.POSICION_UNAVAILABLE:
-        salida.innerHTML = "TE PERDISTE"; 
-        break;
-      case error.TIMEOUT:
-        salida.innerHTML = "TIEMPO TRANS "; 
-        break;
-    }
-  }
- </script>
 </head>
 <body>
   <app-root></app-root>

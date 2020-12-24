@@ -20,6 +20,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrousrService} from './WebServices/registro/registrousr.service';
 import { LogCoordenadaComponent } from './log-coordenada/log-coordenada.component';
+import {RegistroCoordService} from './WebServices/localizacion/registro-coord.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { LogCoordenadaComponent } from './log-coordenada/log-coordenada.componen
     AngularFireDatabaseModule,
     AngularFirestoreModule, FormsModule, ReactiveFormsModule
   ],
-  providers: [RegistrousrService,AngularFireAuth, AngularFirestore],
+  providers: [RegistrousrService, RegistroCoordService, AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

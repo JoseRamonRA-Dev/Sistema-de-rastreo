@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { MensajesService } from '../WebServices/mensajes.service';
+import { Router } from '@angular/router';
+import { RegistroCoordService } from '../WebServices/localizacion/registro-coord.service';
 
 @Component({
   selector: 'app-log-coordenada',
@@ -7,39 +11,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogCoordenadaComponent implements OnInit {
 
-  constructor() { }
+  latitud2: any;
+  longitud2: any;
+  lati_longi: FormGroup;
+  data: FormGroup;
+  lati_longi_local: any;
+  data_local: any;
+
+  constructor(private formBuilder: FormBuilder, private servicio: RegistroCoordService,
+    private mensaje: MensajesService, private router: Router) {
+    this.lati_longi = new FormGroup({
+      'longitud': new FormControl('', Validators.required),
+      'latitud': new FormControl('', Validators.required)
+    });
+    this.data = new FormGroup({
+      'numerocel': new FormControl('', Validators.required),
+      'latitud': new FormControl('', Validators.required),
+      'longitud': new FormControl('', Validators.required),
+      'tiempo': new FormControl('', Validators.required)
+    });
+  }
+
+
+  getLocation() {
+    this.servicio.getPosition().then(pos => {
+      this.latitud2 = pos.lat;
+      this.longitud2 = pos.lng;
+    });
+  }
+
+  agreagrLocalizacion(): void {
+    this.data_local = this.data.value;
+    if ((this.data_local.longitud != "") && (this.data_local.latitud != "")) {
+      this.servicio.registrarLocalizacion(this.data_local).then((res) => {
+        this.mensaje.mensaje('success', 'Localizacion agregada', 'Tu nueva ubicacion a sido agregada a tu rastreo personal.');
+        this.router.navigate(['/inicio']);
+      });
+    } else {
+      this.mensaje.mensaje('error', 'Error', 'A ocurrido un error al querer cargar su ubicacion.');
+    }
+  }
 
   ngOnInit(): void {
-
-    function coordenadas(){
-      if (navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(muestracoordenadas,manejoerrores);
-      }else{
-        document.getElementById("salida").innerHTML="Tu navegador es chafa";
-      }
-    }
-    function muestracoordenadas(posicion){
-      var lt = posicion.coords.latitude;
-      var ln = posicion.coords.longitude;
-      
-      document.getElementById("salida").innerHTML = "LATITUD: " + lt + "<br> LONGITUD: " + ln + "<br>";
-    }
-    function manejoerrores(error){
-      var salida = document.getElementById("salida");
-      switch(error.code){
-        case error.PERMISSION_DENIED:
-          salida.innerHTML = "EL USUARIO FUE GACHO"; 
-          break;
-        case error.POSICION_UNAVAILABLE:
-          salida.innerHTML = "TE PERDISTE"; 
-          break;
-        case error.TIMEOUT:
-          salida.innerHTML = "TIEMPO TRANS "; 
-          break;
-      }
-    }
-    
+    this.getLocation()
   }
-  
 
 }
