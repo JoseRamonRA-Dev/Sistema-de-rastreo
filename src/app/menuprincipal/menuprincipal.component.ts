@@ -51,5 +51,6 @@ export class MenuprincipalComponent implements OnInit {
     this.bandera1 = false;
     this.mensaje.timer(2000,'CERRANDO SESIÓN');
     localStorage.setItem("id","");
+    localStorage.setItem("correo","");
   }
 }
