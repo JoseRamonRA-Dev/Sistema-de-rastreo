@@ -1,0 +1,33 @@
+<div class="container p-3">
+    <h1>RASTREO PERSONAL</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <label class="col-2 col-form-label">Correo:</label>
+                <div class="col-4">
+                    <label>{{correo2}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <table class="table table-hover table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">FECHA</th>
+                                <th scope="col">LATITUD</th>
+                                <th scope="col">LONGITUD</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of empleados_encontrados">
+                                <td>{{item.latitud}}</td>
+                                <td>{{item.longitud}}</td>
+                                <td>{{item.tiempo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { LogCoordenadaComponent } from './log-coordenada/log-coordenada.componen
 import {PaginabodyComponent} from './paginabody/paginabody.component';
 import {PreguntasfComponent} from './preguntasf/preguntasf.component';
 import {RegistroComponent} from './registro/registro.component';
+import {RastreoPersonalComponent} from './rastreo-personal/rastreo-personal.component';
 
 const routes: Routes = [
   { path: 'inicio', component: PaginabodyComponent  },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'preguntas', component: PreguntasfComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'log_coord', component: LogCoordenadaComponent },
+  { path: 'rastreo_personal', component: RastreoPersonalComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'inicio'}
 ];
 

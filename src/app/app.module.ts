@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrousrService} from './WebServices/registro/registrousr.service';
 import { LogCoordenadaComponent } from './log-coordenada/log-coordenada.component';
 import {RegistroCoordService} from './WebServices/localizacion/registro-coord.service';
+import { RastreoPersonalComponent } from './rastreo-personal/rastreo-personal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {RegistroCoordService} from './WebServices/localizacion/registro-coord.se
     PreguntasfComponent,
     PaginabodyComponent,
     RegistroComponent,
-    LogCoordenadaComponent
+    LogCoordenadaComponent,
+    RastreoPersonalComponent
   ],
   imports: [
     BrowserModule,
