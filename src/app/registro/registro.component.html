@@ -1,0 +1,103 @@
+<main role="main">
+    <div class="container">
+<form  [formGroup]="datos" (ngSubmit)="guardarCambios()"  >
+
+   
+     <div class="row">
+       <div class="col-12">
+           <br>
+           <br>
+           <br>
+        <h2>Registro  <small> Ingrese todos los datos</small></h2>
+        <hr>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Nombre:</label>
+        <div class="col-8">
+          <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+        </div>
+      </div>
+  
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Apellido Paterno: </label>
+        <div class="col-8">
+          <input class="form-control" type="text" placeholder="Apellido" formControlName="apellidop">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Apellido Materno: </label>
+        <div class="col-8">
+          <input class="form-control"  type="text" placeholder="Apellido Materno" formControlName="apellidom">
+        </div>
+      </div>
+  
+        <h4>Domicilio y contacto</h4>
+          <hr>
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Calle: </label>
+          <div class="col-8">
+            <input class="form-control" type="text" placeholder="Calle"
+            formControlName="calle">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Municipio: </label>
+          <div class="col-8">
+            <input class="form-control"
+            type="text"
+            placeholder="Municipio"
+            formControlName="municipio">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Estado: </label>
+          <div class="col-8">
+            <input class="form-control" type="text" placeholder="Estado" formControlName="estado">
+          </div>
+        </div>
+  
+         <div class="form-group row">
+          <label class="col-2 col-form-label">Correo: </label>
+          <div class="col-8">
+            <input class="form-control" type="text" placeholder="Correo electronico" formControlName="correo">
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Numero de celular</label>
+          <div class="col-8">
+            <input class="form-control"
+            type="text"
+            placeholder="Numero de celular"
+            formControlName="numerocel">
+          </div>
+        </div>
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Contraseña: </label>
+        <div class="col-8">
+          <input class="form-control" type="password" placeholder="Ingresa contraseña" formControlName="contrasena">
+         </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Confirma la contraseña: </label>
+          <div class="col-8">
+            <input class="form-control"
+            type="password"
+            placeholder="Ingresa nuevamente la contraseña"
+            formControlName="contra2">
+           </div>
+          </div>
+     <div class="form-group row">
+      <label class="col-2 col-form-label">&nbsp;</label>
+      <div class="input-group col-md-8">
+        <button type="submit" class="btn btn-outline-primary"  >
+          Registrarme
+        </button>
+      </div>
+    </div>
+    </div>
+  </div>
+ 
+  </form>
+</div>
+</main>

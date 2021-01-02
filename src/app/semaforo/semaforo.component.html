@@ -1,0 +1,31 @@
+<main role="main">
+    <div class="container">
+        <div class="card" style="background-color: #6DDDFE;">
+            <div class="card-body m-3">
+              <div class="row text-center" style="margin-top: 20px;background-color: #142b3b;">
+                <div class="col-12"><h1 style="color: #5ebcfa; font-style: italic;"> <b> Estado de salud </b></h1></div> 
+            </div>
+            </div>
+          </div>
+          <hr>
+             <div class="row">
+                 <div class="col-12 text-center">
+                     <h1 style="color: #142b3b; font-style: italic;">Marque su estado de salud actual</h1> 
+                     <br><br>
+                 </div>
+             </div>
+             <div class="row align-center">
+                 <div class="col-12 text-center text-size: 20px;">
+                     <span>VERDE (SIN CONTAGIO)</span><br>
+                   <button (click)="verde()" class="btn btn-success btn-circle btn-xl"></button>
+                   <br><br>
+                   <span>AMARILLO (INTERACCION CON POSITIVO)</span><br>
+                   <button (click)="amarillo()" class="btn btn-warning btn-circle btn-xl"></button>
+                   <br><br>
+                   <span>ROJO (POSITIVO)</span><br>
+                   <button (click)="rojo()" class="btn btn-danger btn-circle btn-xl"></button>
+                 </div>
+             </div>
+          <hr>
+    </div>
+</main>
