@@ -22,6 +22,7 @@ import { RegistrousrService} from './WebServices/registro/registrousr.service';
 import { LogCoordenadaComponent } from './log-coordenada/log-coordenada.component';
 import {RegistroCoordService} from './WebServices/localizacion/registro-coord.service';
 import { RastreoPersonalComponent } from './rastreo-personal/rastreo-personal.component';
+import { SemaforoComponent } from './semaforo/semaforo.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RastreoPersonalComponent } from './rastreo-personal/rastreo-personal.co
     PaginabodyComponent,
     RegistroComponent,
     LogCoordenadaComponent,
-    RastreoPersonalComponent
+    RastreoPersonalComponent,
+    SemaforoComponent
   ],
   imports: [
     BrowserModule,

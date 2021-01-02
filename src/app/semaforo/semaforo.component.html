@@ -1,0 +1,37 @@
+<main role="main">
+    <div class="container">
+        <div class="card" style="background-color: #6DDDFE;">
+            <div class="card-body m-2">
+                <div class="row text-center" style="margin-top: 20px;background-color: #142b3b;">
+                    <div class="col-12">
+                        <h1 style="color: #5ebcfa; font-style: italic;"> <b> BOTON DE EMERGENCIA Y RASTREO PERSONAL </b>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <h4 style="color: #142b3b; align-self:center;"> <b> ESTADO DE SALUD ACTUAL:</b> {{correo}} - {{estado}} </h4>
+        </div>
+        <br>
+        <div class="row align-center">
+            <div class="col-3 text-center text-size: 20px;">
+                <h5 style="color: #142b3b; font-style: italic; text-transform: uppercase;">Cambiar de estado: </h5>
+                <span>VERDE (SIN CONTAGIO)</span><br>
+                <button (click)="verde()" class="btn btn-success btn-circle btn-xl"></button>
+                <br><br>
+                <span>AMARILLO (INTERACCION CON POSITIVO)</span><br>
+                <button (click)="amarillo()" class="btn btn-warning btn-circle btn-xl"></button>
+                <br><br>
+                <span>ROJO (POSITIVO)</span><br>
+                <button (click)="rojo()" class="btn btn-danger btn-circle btn-xl"></button>
+            </div>
+            <div class="col-9 text-center text-size: 20px;">
+                <app-rastreo-personal></app-rastreo-personal>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+</main>
