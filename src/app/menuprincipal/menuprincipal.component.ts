@@ -26,7 +26,8 @@ export class MenuprincipalComponent implements OnInit {
           nombre: e.payload.doc.data()["nombre"],
           apellidop: e.payload.doc.data()["apellidop"],
           correo: e.payload.doc.data()["correo"],
-          contra: e.payload.doc.data()["contrasena"]
+          contra: e.payload.doc.data()["contrasena"], 
+          cel: e.payload.doc.data()["numerocel"]
         };
       });
       for (let i = 0; i < this.usuarios.length; i++) {
@@ -35,6 +36,7 @@ export class MenuprincipalComponent implements OnInit {
                 this.nombre = this.usuarios[i]["nombre"];
                 this.apellidop = this.usuarios[i]["apellidop"];
                 localStorage.setItem("id", this.usuarios[i]["id"]);
+                localStorage.setItem("correo", this.usuarios[i]["correo"]);
              }   
       }
          if(this.bandera2){
@@ -49,5 +51,6 @@ export class MenuprincipalComponent implements OnInit {
     this.bandera1 = false;
     this.mensaje.timer(2000,'CERRANDO SESIÓN');
     localStorage.setItem("id","");
+    localStorage.setItem("correo","");
   }
 }

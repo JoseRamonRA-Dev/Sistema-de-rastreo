@@ -6,23 +6,24 @@ import Swal from 'sweetalert2';
 export class MensajesService {
 
   constructor() { }
-  mensaje(icono, titulo, subtitulo){
+  mensaje(icono, titulo, subtitulo) {
     Swal.fire({
       icon: icono,
       title: titulo,
       text: subtitulo
     })
   }
-  timer(tiempo, titulo){
+  
+  timer(tiempo, titulo) {
     let timerInterval
     Swal.fire({
-  title: titulo,
-  timer: tiempo,
-  timerProgressBar: true,
-  
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-});
+      title: titulo,
+      timer: tiempo,
+      timerProgressBar: true,
+
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    });
   }
 }

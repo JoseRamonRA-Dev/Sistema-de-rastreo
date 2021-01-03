@@ -24,7 +24,7 @@
             A través de tu localizacón via GPS, realiza el registro de tu presencia en cierta zona pública.
           </p></div>
           
-          <p><a class="btn btn-secondary" href="#" role="button">Realizar registro &raquo;</a></p>
+          <p><a class="btn btn-secondary" [routerLink]="['/log_coord']" role="button">Realizar registro &raquo;</a></p>
         </div>
         <div class="col-lg-4 text-center">
           <img class="rounded-circle" src="../../assets/semaforo.jpg" alt="Generic placeholder image" width="140" height="140">
@@ -32,7 +32,7 @@
           <div class="text-justify">
           <p>Ve la situación del estado de riesgo de acuerdo a las zonas que has visitado</p>
         </div>
-          <p><a class="btn btn-secondary" href="#" role="button">ver&raquo;</a></p>
+          <p><a class="btn btn-secondary" href="#" role="button" [routerLink]="['/estado']">ver&raquo;</a></p>
         </div>
         <div class="col-lg-4 text-center">
           <img class="rounded-circle" src="../../assets/gps.jpg" alt="Generic placeholder image" width="140" height="140">
@@ -40,7 +40,7 @@
           <div class="text-justify">
           <p>Realiza el registro para indicar el nivel de riesgo en el que te encuentras (Identificado por Sector salud)</p>
         </div>
-          <p><a class="btn btn-secondary" href="#" role="button">Emergencia &raquo;</a></p>
+          <p><a class="btn btn-secondary" [routerLink]="['/semaforo']" role="button">Emergencia &raquo;</a></p>
         </div>
       </div>
 

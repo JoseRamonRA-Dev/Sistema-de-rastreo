@@ -19,6 +19,11 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrousrService} from './WebServices/registro/registrousr.service';
+import { LogCoordenadaComponent } from './log-coordenada/log-coordenada.component';
+import {RegistroCoordService} from './WebServices/localizacion/registro-coord.service';
+import { RastreoPersonalComponent } from './rastreo-personal/rastreo-personal.component';
+import { SemaforoComponent } from './semaforo/semaforo.component';
+import { EstadoRiesgoComponent } from './estado-riesgo/estado-riesgo.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,11 @@ import { RegistrousrService} from './WebServices/registro/registrousr.service';
     AcercadeComponent,
     PreguntasfComponent,
     PaginabodyComponent,
-    RegistroComponent
+    RegistroComponent,
+    LogCoordenadaComponent,
+    RastreoPersonalComponent,
+    SemaforoComponent,
+    EstadoRiesgoComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,7 @@ import { RegistrousrService} from './WebServices/registro/registrousr.service';
     AngularFireDatabaseModule,
     AngularFirestoreModule, FormsModule, ReactiveFormsModule
   ],
-  providers: [RegistrousrService,AngularFireAuth, AngularFirestore],
+  providers: [RegistrousrService, RegistroCoordService, AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

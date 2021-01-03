@@ -10,8 +10,17 @@ export class RegistrousrService {
   usuariosregistrados(){
     return this.serviciofirebase.collection('Usuarios').snapshotChanges();
   }
+  
   registrarUsuario(usuario){
     return this.serviciofirebase.collection('Usuarios').add(usuario);
+  }
+
+  actualizarEstado(id, Record){
+    this.serviciofirebase.doc('Usuarios/' + id).update(Record); 
+  }
+
+  obtenerUsuarios() {
+    return this.serviciofirebase.collection('Usuarios').snapshotChanges();
   }
 
 }
